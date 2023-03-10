@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Employee from "./components/Employee";
 
 function App() {
+  const showEmployee = true;
+  const hobby = 'ngoding' 
+  const role = 'magang'
+  const noRole = 'not magang'
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {showEmployee ? (
+        <div>
+          <Employee name = 'riski' old='17' hobby={hobby} role={role} noRole={noRole}/>
+        </div>
+      ) : (
+        <p>you cannot employee</p>
+      )}
+    </>
   );
 }
 
