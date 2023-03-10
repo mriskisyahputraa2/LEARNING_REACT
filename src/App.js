@@ -1,38 +1,27 @@
-import "./App.css";
+import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react";
-
+import Img from './assets/img/gbr6.jpg'
 
 function App() {
-  const showEmployee = true;
-  const [role, setRole] = useState();
+  const [role, setRole] = useState("dev");
   const [age, setAge] = useState(14);
 
   const Age = (e) => {
-    setAge(e.target.value)
-  }
-  <Employee name = 'Rahmat'/>
+    setAge(e.target.value);
+  };
+  <Employee name="Rahmat" />;
 
   return (
     <>
-      {showEmployee ? (
-        <div>
-          <input type="text" placeholder="Enter Role..." onChange={(e) => {
-            console.log(e.target.value);
-            setRole(e.target.value);
-          }}/> <br/><br/>
-
-          <input type="text" placeholder="Enter Age..." onChange={Age} />
-
-
-          <Employee name = 'Muhammad' role={role} age={age}/>
-          <Employee name = 'Rizki' role="officer" age='15'/>
-          <Employee name = 'Syahputra' role="user" age='18'/>
-          <Employee/>
-        </div>
-      ) : (
-        <p>you cannot employee</p>
-      )}
+      <div className="flex flex-wrap justify-center">
+        <Employee name="Muhammad" role={role} age={age} Img={Img}/>
+        <Employee name="Muhammad" role={role} age={age} Img={Img}/>
+        <Employee name="Muhammad" role={role} age={age} Img={Img}/>
+        <Employee name="Muhammad" role={role} age={age} Img={Img}/>
+        <Employee name="Muhammad" role={role} age={age} Img={Img}/>
+       
+      </div>
     </>
   );
 }
