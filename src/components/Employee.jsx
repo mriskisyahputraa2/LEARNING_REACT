@@ -1,15 +1,17 @@
-function Employee(props) {
-    return <>
 
-        <h4>Employee: {props.name}</h4>
-        
-        {props.role ? (
-            <p>{props.role}</p>
-        ):(
-            <p>No role</p>
-    )}
-        <h4>Old your: {props.old}</h4>
-        {/* <h4>My Hobby: {props.hobby}</h4> */}
+function Employee(props) {
+  return (
+    <>
+      <h3>Employee: {props.name}</h3>
+      {props.role && props.age ? (
+        <div>
+            <p>Role: {props.role}</p>
+            <p>My age: {props.age}</p>
+        </div>
+      ) : (
+        <p>Role: No Role</p>
+      )}
     </>
+  );
 }
-export default Employee 
+export default Employee;
