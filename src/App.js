@@ -2,6 +2,7 @@ import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // import id unik dengan menginstall npm install uuid
+import AddEmployee from "./components/AddEmployee";
 
 function App() {
   const [employees, setEmployees] = useState(
@@ -72,8 +73,10 @@ function App() {
           );
         })}
       </div>
+      <AddEmployee/>
     </>
   );
 }
 
 export default App;
+ 
