@@ -10,38 +10,38 @@ function App() {
     {
       id:1,
       name: "Jhon",
-      role: "Developer",
+      role: "Manager",
       img: "https://images.pexels.com/photos/15790182/pexels-photo-15790182.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id:2,
       name: "Annise",
-      role: "Developer",
+      role: "Officer",
       img: "https://images.pexels.com/photos/15126611/pexels-photo-15126611.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id:3,
       name: "Clara",
-      role: "Developer",
+      role: "Front-End",
       img: "https://images.pexels.com/photos/15787375/pexels-photo-15787375.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id:4,
       name: "Alex",
-      role: "Developer",
+      role: "Back-End",
       img: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id:5,
       name: "Annie",
-      role: "Developer",
+      role: "Data Analytis",
       img: "https://images.pexels.com/photos/1727273/pexels-photo-1727273.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id:6,
-      name: "Annie",
-      role: "Developer",
-      img: "https://images.pexels.com/photos/1727273/pexels-photo-1727273.jpeg?auto=compress&cs=tinysrgb&w=600",
+      name: "Kevin",
+      role: "UI/UX",
+      img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ]);
 
@@ -54,6 +54,16 @@ function App() {
       return employee;
     });
     setEmployees(updatedEmployees)
+  }
+
+  function newEmployee(name, role, img){
+    const newEmployee ={
+      id: uuidv4(),
+      name:name,
+      role:role,
+      img:img
+    }
+    setEmployees([...employees, newEmployee])
   }
 
 
@@ -73,7 +83,7 @@ function App() {
           );
         })}
       </div>
-      <AddEmployee/>
+      <AddEmployee newEmployee={newEmployee}/>
     </>
   );
 }
