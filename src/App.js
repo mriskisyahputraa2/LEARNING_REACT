@@ -3,6 +3,7 @@ import Employee from "./components/Employee";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // import id unik dengan menginstall npm install uuid
 import AddEmployee from "./components/AddEmployee";
+import EditEmployee from "./components/EditEmployee";
 
 function App() {
   const [employees, setEmployees] = useState(
@@ -45,9 +46,10 @@ function App() {
     },
   ]);
 
+  // function updateEmployee
   function updateEmployee(id, newName, newRole) {
     const updatedEmployees = employees.map((employee) => {
-      if(id == employee.id){
+      if(id === employee.id){
         return {...employee, name:newName, role:newRole}
       }  
 
@@ -56,6 +58,7 @@ function App() {
     setEmployees(updatedEmployees)
   }
 
+  // function addEmployee
   function newEmployee(name, role, img){
     const newEmployee ={
       id: uuidv4(),
@@ -71,6 +74,14 @@ function App() {
     <>
       <div className="flex flex-wrap justify-center">
         {employees.map((employee) => {
+          const editEmployee =(
+            <EditEmployee
+            id={employee.id}
+            name={employee.name}
+            role={employee.role}
+            updateEmployee={updateEmployee}
+          />
+        )
           return (
             <Employee
               key={employee.id}
@@ -78,7 +89,7 @@ function App() {
               name={employee.name}
               role={employee.role}
               img={employee.img}
-              updateEmployee={updateEmployee}
+              editEmployee ={editEmployee }
             />
           );
         })}
